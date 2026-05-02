@@ -1,171 +1,313 @@
 <!DOCTYPE html>
-<html lang="en" >
-   <head>
-      <link rel="shortcut icon" href="favicon.png" type="image/png"> 
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-      <meta name="description"
-         content="With the divine grace of the almighty, inviting you and your family to Nina and Mohyiddine's wedding to be held on Friday, 24 June 2027 at our venue from 7:00 PM onwards.">
-      <meta name="author" content="Mohyiddine Oujarrar">
-      <meta name="email" content="mohyiddine oujarrar@gmail.com">
-      <meta name="copyright" content="Mohyiddine Oujarrar 2026" />
-      <meta property="og:type" content="website" />
-      <meta property="og:title" content="Wedding Invitation | 24 June 2027 | Nina & Mohyiddine" />
-      <meta property="og:description"
-         content="With the divine grace of the almighty, inviting you and your family to Nina and Mohyiddine's wedding to be held on Friday, 24 June 2027 at our venue from 7:00 PM onwards." />
-      <meta property="og:image" content="https://raw.githubusercontent.com/mohyiddine/mohyiddine/master/images/sonali.jpeg" />
-      <meta property="og:url" content="" />
-      <meta property="og:site_name" content="Wedding Invitation | 24 June 2027" />
-      <meta name="twitter:card" content="website">
-      <meta name="twitter:site" content="Wedding Invitation | 24 June 2027">
-      <meta name="twitter:title" content="Wedding Invitation | 24 June 2027">
-      <meta name="twitter:description"
-         content="With the divine grace of the almighty, inviting you and your family to Nina and Mohyiddine's wedding to be held on Friday, 24 June 2027 at our venue from 7:00 PM onwards.">
-      <meta name="twitter:creator" content="@MohyiddineOujarrar">
-      <meta name="twitter:image" content="https://raw.githubusercontent.com/mohyiddine/mohyiddine/master/images/sonali.jpeg">
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-      <title>Wedding Invitation | 24 June 2027 | Nina & Mohyiddine</title>
+<title>Save the Date</title>
 
-      <link href="https://fonts.googleapis.com/css?family=Arvo" rel="stylesheet">
-      <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Dancing+Script&amp;display=swap'>
-      <link rel="stylesheet" href="./css/style.css">
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-   </head>
-   <body>
-      <!-- partial:index.partial.html -->
-      <div class="sakura-falling"></div>
-      <section id="media"></section>
-      
-      <!-- Carousel Container -->
-      <div class="carousel-container">
-        
-        <!-- Slide 1: Title -->
-        <div class="carousel-section active">
-          <div class="carousel-content">
-            <div class="title">
-              <h1>Nina</h1>
-              <h2>&</h2>
-              <h1>Mohyiddine</h1>
-              <h3>Are getting married</h3>
-              <br /><br /><br />
-              <p>
-                on <span class="date">Friday, 24 June 2027</span>, At <span class="place">Milchhäuschen Königswinter</span>
-              </p>
-            </div>
-          </div>
+<link href="https://fonts.googleapis.com/css?family=Arvo" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Dancing+Script&display=swap" rel="stylesheet">
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* 🔥 disable text selection everywhere */
+body, * {
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: url('./assets/img/bg-2.jpg') bottom / cover no-repeat fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100dvh;
+    padding: 10px;
+    overflow: hidden;
+}
+
+/* CONTAINER */
+.container {
+    width: 100%;
+    max-width: 520px;
+    background: rgba(245,245,220,0.8);
+    padding: 22px 18px;
+    border-radius: 18px;
+    text-align: center;
+    box-shadow: 0 8px 28px rgba(0,0,0,0.28);
+
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+
+    animation: fadeIn 1.2s ease;
+}
+
+/* LANGUAGE */
+.lang-switch {
+    text-align: right;
+}
+
+.lang-switch button {
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* MAP */
+.map-circle {
+    width: min(210px, 60vw);
+    height: min(210px, 60vw);
+    margin: 0 auto;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 4px solid #8b4513;
+
+    animation: float 4s ease-in-out infinite;
+}
+
+.map-circle iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* TITLE */
+.save-the-date {
+    font-family: 'Dancing Script', cursive;
+    font-size: clamp(26px, 5vw, 40px);
+    color: #2d5016;
+}
+
+/* CALENDAR */
+.calendar {
+    background: white;
+    padding: 8px;
+    border-radius: 10px;
+    border: 2px solid #8b4513;
+}
+
+.weekdays {
+    display: grid;
+    grid-template-columns: repeat(7,1fr);
+    font-size: clamp(10px,2.5vw,14px);
+    font-weight: 700; /* 🔥 bolder */
+    color: #5a3b1e; /* slightly darker */
+    margin-bottom: 4px;
+}
+
+.days {
+    display: grid;
+    grid-template-columns: repeat(7,1fr);
+    font-size: clamp(9px,2.5vw,13px);
+}
+
+.days div.highlighted {
+    background: #228B22;
+    color: white;
+    border-radius: 50%;
+}
+
+/* BUTTON ROW */
+.button-row {
+    display: flex;
+    gap: 10px;
+}
+
+.button-row button {
+    flex: 1;
+    padding: 10px;
+    border-radius: 18px;
+    border: none;
+    cursor: pointer;
+    font-size: clamp(12px,3vw,14px);
+    transition: 0.3s;
+}
+
+.save-btn {
+    background: #228B22;
+    color: white;
+}
+
+.map-btn {
+    background: #8b4513;
+    color: white;
+}
+
+.button-row button:hover {
+    transform: scale(1.05);
+}
+
+/* TEXT */
+.footer-text {
+    font-family: 'Dancing Script';
+    font-size: clamp(16px,4vw,22px);
+    line-height: 1.35;
+}
+
+.footer-text::after {
+    content: "";
+    display: block;
+    width: 40%;
+    height: 1px;
+    background: rgba(0,0,0,0.15);
+    margin: 8px auto 0;
+}
+
+.names {
+    font-family: 'Dancing Script';
+    font-size: clamp(22px,5vw,28px);
+    color: #6b3e26;
+    margin-top: 6px;
+    letter-spacing: 0.5px;
+}
+
+/* HEART ANIMATION */
+.heart {
+    display: inline-block;
+    animation: heartbeat 1.6s infinite;
+}
+
+/* ANIMATIONS */
+@keyframes fadeIn {
+    from {opacity:0; transform:scale(0.95);}
+    to {opacity:1; transform:scale(1);}
+}
+
+@keyframes float {
+    0%,100% {transform: translateY(0);}
+    50% {transform: translateY(-6px);}
+}
+@keyframes heartbeat {
+    0%, 100% { transform: scale(1); }
+    25% { transform: scale(1.15); }
+    40% { transform: scale(1); }
+    60% { transform: scale(1.1); }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="lang-switch">
+        <button onclick="setLang('de')">DE</button> |
+        <button onclick="setLang('en')">EN</button>
+    </div>
+
+    <div class="map-circle">
+        <iframe src="https://maps.google.com/maps?q=50.671868284110005,7.222807890730933&output=embed"></iframe>
+    </div>
+
+    <div class="save-the-date"
+        data-de="Save the Date"
+        data-en="Save the Date"></div>
+
+    <div class="calendar">
+        <div class="weekdays">
+            <div>MO</div><div>DI</div><div>MI</div>
+            <div>DO</div><div>FR</div><div>SA</div><div>SO</div>
         </div>
 
-        <!-- Slide 2: Countdown + Actions -->
-        <div class="carousel-section">
-          <div class="carousel-content">
-            <p class="dance-med">
-              Still
-            </p>
-            <div id="time"></div>
-            <p class="dance-med">
-              to go!
-            </p>
-            <div class="actions">
-              <a href="https://www.google.com/maps?q=50.671868284110005,7.222807890730933" target="_blank">
-                <div class="venue">SEE THE VENUE</div>
-              </a>
-              <a href="https://github.com/mohyiddine/mohyiddine/raw/master/docs/Nina%20%26%20Mohyiddine.pdf" download="Invitation | 24 June 2027 | Hope to see you there!">
-                <div class="venue">DOWNLOAD INVITATION CARD</div>
-              </a>
-            </div>
-          </div>
+        <div class="days">
+            <div></div><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div>
+            <div>7</div><div>8</div><div>9</div><div>10</div><div>11</div><div>12</div><div>13</div>
+            <div>14</div><div>15</div><div>16</div><div>17</div><div>18</div><div>19</div><div>20</div>
+            <div>21</div><div>22</div><div>23</div><div>24</div>
+            <div class="highlighted">25</div>
+            <div>26</div><div>27</div><div>28</div><div>29</div><div>30</div>
         </div>
+    </div>
 
-        <!-- Slide 3: Venue Location -->
-        <div class="carousel-section">
-          <div class="carousel-content">
-            <div class="map-container">
-              <h3>Venue Location</h3>
-              <iframe src="https://maps.google.com/maps?q=50.671868284110005,7.222807890730933&output=embed&t=k" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-            </div>
-          </div>
-        </div>
+    <div class="button-row">
+        <button class="save-btn" onclick="saveToCalendar()"
+            data-de="Speichern"
+            data-en="Save"></button>
 
-        <!-- Slide 4: Save the Date + Footer -->
-        <div class="carousel-section">
-          <div class="carousel-content">
-            <div class="save-the-date">
-              <h2>Save the Date</h2>
-              <label for="guest-count">Number of guests (including yourself):</label>
-              <input type="number" id="guest-count" min="1" max="20">
-              <button type="button" id="generate-form">Generate RSVP Form</button>
-              <div id="rsvp-form" style="display:none;">
-                <h3>RSVP Details</h3>
-                <table id="rsvp-table">
-                  <thead>
-                    <tr>
-                      <th>Name</th>
-                      <th>Attending</th>
-                      <th>Music Wish</th>
-                    </tr>
-                  </thead>
-                  <tbody id="guest-rows"></tbody>
-                </table>
-                <button type="button" id="submit-rsvp">Submit RSVP</button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- Slide 5: Footer Message -->
-        <div class="carousel-section">
-          <div class="carousel-content">
-            <div class="footer-note">
-              <p>
-                Can't wait to celebrate that moment with family and friends! <br/>
-                For inquiries or adjustments to the program, please contact Judith under: <a href="mailto:recipient@example.com">Send Email</a>
-              </p>
-            </div>
-          </div>
-        </div>
+        <button class="map-btn" onclick="openMaps()"
+            data-de="Karte öffnen"
+            data-en="Open Map"></button>
+    </div>
 
-      </div>
+    <div class="footer-text"
+        data-de="Wir sagen ja <span class='heart'>♥</span><br>Reserviert diesen Termin.<br>Details folgen."
+        data-en="We are getting married <span class='heart'>♥</span><br>Save the date.<br>Details soon.">
+    </div>
 
+    <div class="names">Nina & Mohyiddine</div>
 
+</div>
 
+<!-- 🎵 AUDIO -->
+<audio id="bgMusic" src="./assets/mp3/music.mp3" autoplay loop></audio>
 
-      <!-- Carousel Controls -->
-      <div class="carousel-controls">
-        <button type="button" id="prev-btn" class="carousel-btn">←</button>
-        <button type="button" id="next-btn" class="carousel-btn">→</button>
-      </div>
+<script>
+function setLang(lang) {
+    document.querySelectorAll("[data-de]").forEach(el => {
+        el.innerHTML = el.getAttribute("data-" + lang);
+    });
+}
+setLang("de");
 
-      <div class="music">
-        <!--<audio src="./assets/mp3/song.mp3" id="my_audio" loop="loop"></audio> -->
-      </div>
-      <div class="slide-indicator-bottom">
-        <span id="current-slide">1</span> / 5
-      </div>
-      <p class="happiness">Join us in our happiness!<br></p>
-      <!-- partial -->
-      <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
-      <script src='https://cdn.jsdelivr.net/gh/timoschaefer/jQuery-Sakura/jquery-sakura.min.js'></script>
-      <!-- Firebase SDK -->
-      <script src="https://www.gstatic.com/firebasejs/12.12.0/firebase-app-compat.js"></script>
-      <script src="https://www.gstatic.com/firebasejs/12.12.0/firebase-firestore-compat.js"></script>
-      <script>
-        // Your Firebase config
-        const firebaseConfig = {
-            apiKey: "AIzaSyA7RD3pee7IqrevuXnjQpfA8Z7Oe12CYmY",
-            authDomain: "save-the-date-moni.firebaseapp.com",
-            projectId: "save-the-date-moni",
-            storageBucket: "save-the-date-moni.firebasestorage.app",
-            messagingSenderId: "942019160942",
-            appId: "1:942019160942:web:2a94ba5c8b7fc816df2f7f",
-            measurementId: "G-BPSVMRQKDT"
-        };
+/* CALENDAR */
+function saveToCalendar() {
+    const ics = `BEGIN:VCALENDAR
+VERSION:2.0
+BEGIN:VEVENT
+SUMMARY:Wedding Nina & Mohyiddine
+LOCATION:Milchhäuschen Königswinter
+DTSTART:20270624T190000
+DTEND:20270625T020000
+END:VEVENT
+END:VCALENDAR`;
 
-        // Initialize Firebase
-        firebase.initializeApp(firebaseConfig);
-        const db = firebase.firestore();
-        window.db = db;
-        console.log('Firebase initialized', { db, firebaseConfig });
-      </script>
-      <script  src="./js/script.js"></script>
-   </body>
+    const blob = new Blob([ics], {type:'text/calendar'});
+    const link = document.createElement('a');
+    link.href = URL.createObjectURL(blob);
+    link.download = 'wedding.ics';
+    link.click();
+}
 
+/* MAP */
+function openMaps() {
+    window.open("https://www.google.com/maps?q=50.671868284110005,7.222807890730933");
+}
+
+/* 🔥 AUTOPLAY FALLBACK */
+const audio = document.getElementById("bgMusic");
+
+audio.volume = 0;
+
+function fadeInAudio() {
+    let vol = 0;
+    const target = 0.5;
+
+    const interval = setInterval(() => {
+        if (vol < target) {
+            vol += 0.02;
+            audio.volume = vol;
+        } else {
+            clearInterval(interval);
+        }
+    }, 100);
+}
+
+/* autoplay attempt */
+audio.play().then(fadeInAudio).catch(() => {
+    document.addEventListener("click", () => {
+        audio.play().then(fadeInAudio);
+    }, { once: true });
+});
+</script>
+
+</body>
 </html>
