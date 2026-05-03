@@ -91,12 +91,6 @@ body {
     z-index: 2;
 }
 
-.zoom-in-delayed {
-    opacity: 0;
-    transition: opacity 4.4s ease;
-    z-index: 3;
-}
-
 /* TITLE */
 .save-the-date {
     font-family: 'Dancing Script', cursive;
@@ -259,13 +253,13 @@ body {
     </div>
 
     <div class="map-circle">
-        <img class="map-img"
+        <img id="mapZoomOut" class="map-img"
             src="https://maps.googleapis.com/maps/api/staticmap?center=50.671868284110005,7.222807890730933&zoom=13&size=600x600&maptype=satellite&markers=color:red%7C50.671868284110005,7.222807890730933&key=AIzaSyDxg5XqTGyOnpVvLOkqZNlzXCUV7yhSY-w">
 
-        <img class="map-img zoom-in"
+        <img id="mapZoomIn" class="map-img zoom-in"
         src="https://maps.googleapis.com/maps/api/staticmap?center=50.671868284110005,7.222807890730933&zoom=15&size=600x600&maptype=satellite&markers=color:red%7C50.671868284110005,7.222807890730933&key=AIzaSyDxg5XqTGyOnpVvLOkqZNlzXCUV7yhSY-w">
 
-        <img class="map-img zoom-in-delayed"
+        <img id="mapZoomInDelayed" class="map-img zoom-in"
             src="https://maps.googleapis.com/maps/api/staticmap?center=50.671868284110005,7.222807890730933&zoom=19&size=600x600&maptype=satellite&markers=color:red%7C50.671868284110005,7.222807890730933&key=AIzaSyDxg5XqTGyOnpVvLOkqZNlzXCUV7yhSY-w">
     </div>
 
@@ -327,6 +321,9 @@ window.addEventListener("load", () => {
     setTimeout(() => {
         document.getElementById("mapZoomIn").style.opacity = "1";
     }, 600);
+    setTimeout(() => {
+        document.getElementById("mapZoomInDelayed").style.opacity = "1";
+    }, 2800);
 });
 
 /* CALENDAR */
