@@ -74,6 +74,12 @@ body {
     animation: float 4s ease-in-out infinite;
 }
 
+
+.zoom-in {
+    opacity: 0;
+    transition: opacity 2.2s ease;
+}
+
 .map-circle iframe {
     width: 100%;
     height: 100%;
@@ -214,7 +220,11 @@ body {
     </div>
 
     <div class="map-circle">
-        <iframe src="https://maps.google.com/maps?q=50.671868284110005,7.222807890730933&output=embed&t=k"></iframe>
+        <img id="mapZoomOut"
+            src="https://maps.googleapis.com/maps/api/staticmap?center=50.671868284110005,7.222807890730933&zoom=13&size=600x600&maptype=satellite&markers=color:red%7C50.671868284110005,7.222807890730933&key=AIzaSyDxg5XqTGyOnpVvLOkqZNlzXCUV7yhSY-w">
+
+        <img id="mapZoomIn" class="zoom-in"
+            src="https://maps.googleapis.com/maps/api/staticmap?center=50.671868284110005,7.222807890730933&zoom=17&size=600x600&maptype=satellite&markers=color:red%7C50.671868284110005,7.222807890730933&key=AIzaSyDxg5XqTGyOnpVvLOkqZNlzXCUV7yhSY-w">
     </div>
 
     <div class="save-the-date"
@@ -271,23 +281,68 @@ function setLang(lang) {
 }
 setLang("de");
 
+window.addEventListener("load", () => {
+    setTimeout(() => {
+        document.getElementById("mapZoomIn").style.opacity = "1";
+    }, 600);
+});
+
 /* CALENDAR */
-function saveToCalendar() {
+function downloadICS() {
     const ics = `BEGIN:VCALENDAR
 VERSION:2.0
+PRODID:-//Wedding//EN
 BEGIN:VEVENT
-SUMMARY:Hochzeit/Wedding Nina & Mohyiddine
-LOCATION:Milchhäuschen Königswinter
+UID:${Date.now()}@wedding
+DTSTAMP:20240601T120000Z
+SUMMARY:Hochzeit / Wedding Nina & Mohyiddine
+LOCATION:Milchhaeuschen Koenigswinter
 DTSTART:20270624T190000
 DTEND:20270625T020000
 END:VEVENT
 END:VCALENDAR`;
 
-    const blob = new Blob([ics], {type:'text/calendar'});
+    const blob = new Blob([ics], { type: 'text/calendar;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+
+    // used for iOS too
+    window.location.href = url;
+
+    // fallback download (desktop)
     const link = document.createElement('a');
-    link.href = URL.createObjectURL(blob);
+    link.href = url;
     link.download = 'wedding.ics';
+    document.body.appendChild(link);
     link.click();
+    document.body.removeChild(link);
+}
+
+
+function saveToCalendar() {
+    const start = "20270624T190000";
+    const end = "20270625T020000";
+
+    const title = encodeURIComponent("Hochzeit / Wedding Nina & Mohyiddine");
+    const location = encodeURIComponent("Milchhäuschen Königswinter");
+
+    const ua = navigator.userAgent;
+
+    const isIOS = /iPhone|iPad/i.test(ua);
+    const isAndroid = /Android/i.test(ua);
+
+    if (isIOS) {
+        // 🍏 BEST UX: opens native calendar directly
+        downloadICS();
+
+    } else if (isAndroid) {
+        // 🤖 BEST UX: Google Calendar
+        const url = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${title}&dates=${start}/${end}&location=${location}`;
+        window.open(url, "_blank");
+
+    } else {
+        // 💻 Desktop fallback
+        downloadICS();
+    }
 }
 
 /* MAP */
