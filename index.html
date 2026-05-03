@@ -205,12 +205,16 @@ body {
     background: rgba(45, 80, 22, 0.08);
 }
 
+.animate {
+    opacity: 0;
+    animation: fadeGlow 2.2s ease forwards, float 4s ease-in-out infinite;
+}
+
 /* ANIMATIONS */
 @keyframes fadeIn {
     from {opacity:0; transform:scale(0.95);}
     to {opacity:1; transform:scale(1);}
 }
-
 @keyframes float {
     0%,100% {transform: translateY(0);}
     50% {transform: translateY(-6px);}
@@ -220,6 +224,21 @@ body {
     25% { transform: scale(1.15); }
     40% { transform: scale(1); }
     60% { transform: scale(1.1); }
+}
+/* glow + fade */
+@keyframes fadeGlow {
+    0% {
+        opacity: 0;
+        text-shadow: none;
+    }
+    60% {
+        opacity: 1;
+        text-shadow: 0 0 8px rgba(45, 80, 22, 0.25);
+    }
+    100% {
+        opacity: 1;
+        text-shadow: 0 0 3px rgba(45, 80, 22, 0.15);
+    }
 }
 </style>
 </head>
@@ -241,7 +260,7 @@ body {
             src="https://maps.googleapis.com/maps/api/staticmap?center=50.671868284110005,7.222807890730933&zoom=19&size=600x600&maptype=satellite&markers=color:red%7C50.671868284110005,7.222807890730933&key=AIzaSyDxg5XqTGyOnpVvLOkqZNlzXCUV7yhSY-w">
     </div>
 
-    <div class="save-the-date"
+    <div class="save-the-date animate"
         data-de="Save the Date"
         data-en="Save the Date"></div>
 
@@ -276,11 +295,11 @@ body {
     </div>
 
     <div class="footer-text"
-        data-de="<span class='highlight-text'>Wir heiraten <span class='heart'>♥</span></span><br>Reserviert diesen Termin für uns.<br>Details folgen in Kürze."
-        data-en="<span class='highlight-text'>We are getting married <span class='heart'>♥</span></span><br>Save this date for us.<br>Details soon.">
+        data-de="<span class='highlight-text animate'>Wir heiraten <span class='heart'>♥</span></span><br>Reserviert diesen Termin für uns.<br>Details folgen in Kürze."
+        data-en="<span class='highlight-text animate'>We are getting married <span class='heart'>♥</span></span><br>Save this date for us.<br>Details soon.">
     </div>
 
-    <div class="names">Nina & Mohyiddine</div>
+    <div class="names animate">Nina & Mohyiddine</div>
 
 </div>
 
