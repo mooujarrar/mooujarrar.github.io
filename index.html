@@ -380,17 +380,14 @@ function saveToCalendar() {
     const isAndroid = /Android/i.test(ua);
 
     if (isIOS) {
-        // 🍏 BEST UX: opens native calendar directly
-        downloadICS();
+        downloadICS(true); // ✅ pass flag
 
     } else if (isAndroid) {
-        // 🤖 BEST UX: Google Calendar
         const url = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${title}&dates=${start}/${end}&location=${location}`;
         window.open(url, "_blank");
 
     } else {
-        // 💻 Desktop fallback
-        downloadICS();
+        downloadICS(false); // ✅ only download once
     }
 }
 
