@@ -196,6 +196,15 @@ body {
     animation: heartbeat 1.6s infinite;
 }
 
+.highlight-text {
+    display: inline-block;
+    font-size: 1.3em; /* bigger */
+    font-weight: bold;
+    padding: 4px 10px;
+    border-radius: 12px;
+    background: rgba(45, 80, 22, 0.08);
+}
+
 /* ANIMATIONS */
 @keyframes fadeIn {
     from {opacity:0; transform:scale(0.95);}
@@ -267,8 +276,8 @@ body {
     </div>
 
     <div class="footer-text"
-        data-de="Wir heiraten <span class='heart'>♥</span><br>Reserviert diesen Termin.<br>Details folgen."
-        data-en="We are getting married <span class='heart'>♥</span><br>Save the date.<br>Details soon.">
+        data-de="<span class='highlight-text'>Wir heiraten <span class='heart'>♥</span></span><br>Reserviert diesen Termin für uns.<br>Details folgen in Kürze."
+        data-en="<span class='highlight-text'>We are getting married <span class='heart'>♥</span></span><br>Save this date for us.<br>Details soon.">
     </div>
 
     <div class="names">Nina & Mohyiddine</div>
